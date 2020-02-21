@@ -35,6 +35,7 @@ RUN update-ca-certificates
 
 RUN apk -U --no-cache add --virtual .build-dependencies python-dev gcc make musl-dev git
 RUN ln -s locale.h /usr/include/xlocale.h
+RUN pip install --upgrade pip==9.0.3
 RUN pip install --no-cache-dir -r requirements.txt
 RUN apk del .build-dependencies
 RUN rm -rf /var/cache/apk/* /usr/include/xlocale.h
